@@ -1,14 +1,14 @@
 import numpy as np
 
 def rectangle_vertical_filter(x, y, black_white):
-	_filter = np.zeros((x*y), dtype=float)
+	_filter = np.full((x*y), -1, dtype=float)
 	if black_white == 'black_white':
 		begin = int((x*y)/2)
 		end = (x*y)
 	else:
 		begin = 0
 		end = (x*y)/2
-	_filter[begin:end] = 255
+	_filter[begin:end] = 1
 	return np.reshape(_filter, (x, y))
 
 def rectangle_horizontal_filter(x, y, black_white):
